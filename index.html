@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HOUSE PRICE PREDICTION</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+
+        }
+        section{
+            position: relative;
+            width: 100%;
+            height: 150vh;
+            display: flex;
+            background-color: whitesmoke;
+        }
+        section.imgbx{
+            position: relative;
+            width: 2px;
+            height: 150%;
+        }
+        section.imgbx:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(225deg,#e91e63,#03a9f4);
+            z-index: 1;
+            mix-blend-mode: screen;
+        }
+        section.imgbx img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300%;
+            height: 100%;
+            object-fit: cover;
+        }
+        section .contentbx{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            width: 50%;
+            height: 100%;
+        }
+        section .contentbx .formbx{
+            width: 50%;
+        }
+        section .contentbx .formbx h2{
+        color: #607d8b;
+        font-weight: 600;
+        font-size: 1.5em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        border-bottom: 4px solid #ff4584;
+        display: inline-block;
+        letter-spacing: 1px;
+        }
+        section .contentbx .formbx .inputbx{
+            margin-bottom: 20px;
+        } 
+        section .contentbx .formbx .inputbx span{
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: inline-block;
+            color: #607d8b;
+            font-weight: 300;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+        section .contentbx .formbx .inputbx input{
+            width: 100%;
+            padding: 10px 20px;
+            outline: none;
+            font-weight: 400;
+            border: 1px solid #607d8b;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color:#607d8b ;
+            background: transparent;
+            border-radius: 30px;
+        }
+        section .contentbx .formbx .inputbx input[]{
+            background: #ff4584;
+            background-color: aliceblue;
+            color: #fff;
+            outline: none;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+
+
+        }
+        section .contentbx .formbx .inputbx input[type="submit"]:hover{
+            background: #f53677;
+        }
+
+        @media(max-width: 768px)
+        {
+            section .imgbx{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 1%;
+                height: 100%;
+            }
+            section .contentbx{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+
+            }
+            section .contentbx .formbx{
+                width: 100%;
+                padding: 40px;
+                background: rgb(255 255 255 / 0.9);
+                margin: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+<section>
+    <div class="imgbx">
+        <img src="https://img.freepik.com/free-photo/luxury-pool-villa-spectacular-contemporary-design-digital-art-real-estate-home-house-property-ge_1258-150749.jpg?w=1060&t=st=1699182786~exp=1699183386~hmac=3fcbe200a1d9933bc7f952d5fcc6546b127888274a4ec9d00c3e6102045c8649">
+    </div>
+    <div class="contentbx my-3 pt-3">
+        <div class="formbx">
+            <h2>House Price Prediction</h2>
+
+            <form action="/predict" method="post">
+            
+                <div class="inputbx">
+                    <span>No of BedRooms</span>
+                    <input type="number" name="bedrooms" required><br><br>
+                </div>
+
+                <div class="inputbx">
+                    <span>No of BathRooms</span>
+                    <input type="number" name="bathrooms" required><br><br>
+                </div>
+
+                <div class="inputbx">
+                    <span>Location</span>
+                    <select name="location" required>
+            <option value="0">AGIRIPALLI</option>
+            <option value="1">Ajit Singh Nagar</option>
+            <option value="3">Ashok Nagar</option>
+            <option value="4">Auto Nagar</option>
+            <option value="5">Ayyappa Nagar</option>
+            <option value="6">Bandar Road</option>
+            <option value="7">Benz Circle</option>
+            <option value="9">Bhavanipuram</option>
+            <option value="10">Currency Nagar</option>
+            <option value="12">Enikepadu</option>
+            <option value="15">Gollapudi</option>
+            <option value="18">Governor Peta</option>
+            <option value="19">Gudavalli</option>
+            <option value="20">Gunadala</option>
+            <option value="22">Guru Nanak Colony</option>
+            <option value="23">Ibrahimpatnam</option>
+            <option value="29">Kanuru</option>
+            <option value="32">Krishna Lanka</option>
+            <option value="33">Labbipet</option>
+            <option value="34">Madhuranagar</option>
+            <option value="35">Mangalagiri</option>
+            <option value="48">Patamata</option>
+            <option value="52">Poranki</option>
+            <option value="55">Ramavarapadu</option>
+            <option value="62">Tadigadapa</option>
+        </select><br><br>
+        </div>
+                    
+
+        <div class="inputbx">
+            <span>Size in Sqft</span>
+            <input type="number" name="size" required><br><br>
+        </div>
+                        
+
+        <div class="inputbx">
+            <span>Status</span>
+            <select name="status" required>
+            <option value="0">New</option>
+            <option value="1">Ready to move</option>
+            <option value="2">Resale</option>
+            <option value="3">Under Construction</option>
+        </select><br><br>
+        </div>
+        
+        <div class="inputbx">
+            <span>Facing Direction</span>
+            <select name="facing" required>
+            <option value="0">East</option>
+            <option value="2">North</option>
+            <option value="3">NorthEast</option>
+            <option value="4">NorthWest</option>
+            <option value="5">South</option>
+            <option value="6">SouthEast</option>
+            <option value="7">SouthWest</option>
+            <option value="8">West</option>
+            <option value="1">None</option>
+        </select><br><br>
+        </div>
+
+            <div class="inputbx">
+                <span>Property Type</span>
+                <select name="type" required>
+            <option value="0">Apartment</option>
+            <option value="1">Independent Floor</option>
+            <option value="2">Independent House</option>
+            <option value="3">Residential Plot</option>
+            <option value="4">Studio Apartment</option>
+            <option value="5">Villa</option>
+        </select><br><br>
+            </div>
+
+
+                
+                <div class="inputbx">
+                    <input type="submit" value="Predict">
+                </div>
+                
+            </form>
+            <h2>Predicted Results</h2>
+    <p>Predicted House Price : ₹ {{prediction}} Lakhs</p></p>
+        </div>
+    </div>
+
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>
